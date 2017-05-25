@@ -1,0 +1,92 @@
+
+div
+{
+    margin: 0px auto;
+    text-align: center;
+   
+}
+li
+{
+    display:inline;
+}
+.bottom
+{
+     width: 100%;
+bottom: 0;
+/*position:absolute;*/
+text-align: center;
+border-bottom: 10px solid #1A1A1A;
+}
+a {
+    text-decoration:none;
+    color:#000000;
+}
+
+a:link {color:#000000; text-decoration:none;}
+
+a:hover {font-size:20; color:#000000; text-decoration:none;}
+a:active {color:#000000; text-decoration:underline;} 
+img
+{
+    width:250px;
+}
+.img-responsive
+{
+    width:300px;
+    
+}
+ .col-md-3 >a:hover img
+ {
+     opacity: .5;
+ }
+
+.navbar-nav .active a
+{
+    border-bottom: 3px solid #000000;
+     color:#000000;
+     padding-bottom:3px;
+    
+    
+}
+.link
+{
+ width: 100%;
+margin-bottom: 20px;
+
+}
+.content
+{
+
+margin-left: 200px;
+ width: 100%;
+}
+
+
+
+#top
+{
+    width: 25px;
+    height: 25px;
+
+}
+
+
+
+a.link-to-top{
+   position: absolute;
+   right: 20px;
+   width: 40px;
+   height: 40px;
+   line-height: 40px;
+   text-align: center;
+   color: rgba(0,0,0, .2);
+   font-size: 48px;
+   background-image: URL("../images/top.png")
+}
+
+/*後台*/
+ .dropdown
+{
+
+ font-size: 48px;
+}
