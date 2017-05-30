@@ -22,13 +22,7 @@ class ContactUsController extends Controller
     {
         var_dump(request()->all());
         
-        /*
-        $newContact = new Contact();
-        $newContact->name = request()->get('name');
-        $newContact->email = request()->get('email');      
-        $newContact->message = request()->get('message');
-        $newContact->save();
-        */
+       
 //驗證資料來源
 
         $this->validate($request, [
@@ -46,8 +40,15 @@ class ContactUsController extends Controller
     ]);
    
 
+         
+        $newContact = new Contact();
+        $newContact->name = request()->get('name');
+        $newContact->email = request()->get('email');      
+        $newContact->message = request()->get('message');
+        $newContact->save();
+        
 
-        //return redirect('/ContactUs')->with('msg', '謝謝您，我們已收到您的來信，會儘快給您回覆！');
+        return redirect('/ContactUs')->with('msg', '謝謝您，我們已收到您的來信，會儘快給您回覆！');
        
     }
 }

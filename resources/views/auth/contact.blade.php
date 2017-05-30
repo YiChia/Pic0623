@@ -41,9 +41,9 @@
            <div class="collpase navbar-collpase">
                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                <ul class="nav navbar-nav">
-                   <li ><a href="{{ action("WorkController@index")}}">作品集</a></li>           
-                   <li ><a href="{{ action("AboutController@index")}}">關於我</a></li> 
-                   <li class="active" ><a href="{{ action("ContactUsController@index")}}">聯繫我</a></li>
+                   <li ><a href="work.html">作品集</a></li>            
+                   <li ><a href="about.html">關於我</a></li>
+                   <li class="active" ><a href="contact.html">聯繫我</a></li>
                </ul>
                </nav>
            </div>    
