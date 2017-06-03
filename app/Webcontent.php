@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Photo;
 
-class Photo extends Model
+class webcontent extends Model
 {
     //
-     protected $table = 'picdata';//可以指定你想要的名稱
+      protected $table = 'webcontent';//可以指定你想要的名稱
      
     public $timestamps = false;
 }

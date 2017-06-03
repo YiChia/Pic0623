@@ -16,10 +16,13 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         
-        Model::unguard(); //problem not found Model
-         $this->call(PhotoTableSeeder::class);
+       // Model::unguard(); //problem not found Model
+        // $this->call(PhotoTableSeeder::class);
+      //   $this->call(WebcontentSeeder::class);
+         $this->call(ArticleTableSeeder::class);
+         $this->call(UserTableSeeder::class);
 
-         Model::regurd();
+       //  Model::regurd();
          
           
     }

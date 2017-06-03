@@ -10,24 +10,90 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//驗證是否登入
+
+    Route::group(array('before' => 'auth'), function(){
+        
+        Route::get('/Article', 'ArticleController@index');
+        Route::get('/Article/create', 'ArticleController@create');
+        Route::post('/Article', 'ArticleController@store');
+        Route::get('/Article/{id}', 'ArticleController@show');
+        Route::get('/Article/{id}/edit', 'ArticleController@edit');
+        Route::put('/Article/{id}', 'ArticleController@update');
+        Route::delete('/Article/{id}', 'ArticleController@destroy');
+    });
+/*
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function ()    {
+        // Uses Auth Middleware
+    });
+
+    Route::get('user/profile', function () {
+        // Uses Auth Middleware
+    });
+});
+*/
+//Route::get('/Article', ['before'=>'auth', 'uses'=>'ArticleController@index']);
+/*
+Route::get('profile', function () {
+  
+    // Only authenticated users may enter...
+     Route::get('/Article', 'ArticleController@index');
+        Route::get('/Article/create', 'ArticleController@create');
+        Route::post('/Article', 'ArticleController@store');
+        Route::get('/Article/{id}', 'ArticleController@show');
+        Route::get('/Article/{id}/edit', 'ArticleController@edit');
+        Route::put('/Article/{id}', 'ArticleController@update');
+        Route::delete('/Article/{id}', 'ArticleController@destroy');
+})->middleware('auth.basic');
+*/
+    /*
+
+    if (Auth::check()){
+        Route::get('/Article', 'ArticleController@index');
+        Route::get('/Article/create', 'ArticleController@create');
+        Route::post('/Article', 'ArticleController@store');
+        Route::get('/Article/{id}', 'ArticleController@show');
+        Route::get('/Article/{id}/edit', 'ArticleController@edit');
+        Route::put('/Article/{id}', 'ArticleController@update');
+        Route::delete('/Article/{id}', 'ArticleController@destroy');
+
+    }
+    else
+    {
+     Route::get('/', function () {
+    return view('/login','LoginController@show');
+});
+
+ //  Route::get('/login','LoginController@show');
+
+    }
+    */
+//Route::get('post', ['before'=>'auth', 'uses'=>'ArticleController@index']);
+//Route::resource('/Article','ArticleController');
+//Route::delete('/article/{$id}/delete','ArticleController@destroy');
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/ContactUs', 'ContactUsController@index'); //聯繫我
 Route::get('/About', 'AboutController@index');         //關於我
 Route::get('/Work', 'WorkController@index');           //作品集
 Route::post('/submitContact', 'ContactUsController@store');
-
+*/
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('login','AdminContactController@index');
-Route::get('Admin/contact','AdminContactController@index');
+//Route::post('login','AdminContactController@index');
+//Route::get('Admin/contact','AdminContactController@index');
+Route::get('/Login','LoginController@show');
+Route::post('/Login','LoginController@login');
+//Route::get('/login','LoginController@logout');
 
-
+/*
 Route::get('/View',function()
 {
   return View::make('test')
@@ -55,3 +121,7 @@ Route::get('/hello', function()
   //也可使用：DB::select('select * from users');
   //return $users;
 });
+*/
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
