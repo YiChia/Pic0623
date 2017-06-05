@@ -22,67 +22,36 @@
         Route::put('/Article/{id}', 'ArticleController@update');
         Route::delete('/Article/{id}', 'ArticleController@destroy');
     });
-/*
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function ()    {
-        // Uses Auth Middleware
-    });
 
-    Route::get('user/profile', function () {
-        // Uses Auth Middleware
-    });
-});
-*/
-//Route::get('/Article', ['before'=>'auth', 'uses'=>'ArticleController@index']);
-/*
-Route::get('profile', function () {
-  
-    // Only authenticated users may enter...
-     Route::get('/Article', 'ArticleController@index');
-        Route::get('/Article/create', 'ArticleController@create');
-        Route::post('/Article', 'ArticleController@store');
-        Route::get('/Article/{id}', 'ArticleController@show');
-        Route::get('/Article/{id}/edit', 'ArticleController@edit');
-        Route::put('/Article/{id}', 'ArticleController@update');
-        Route::delete('/Article/{id}', 'ArticleController@destroy');
-})->middleware('auth.basic');
-*/
-    /*
-
-    if (Auth::check()){
-        Route::get('/Article', 'ArticleController@index');
-        Route::get('/Article/create', 'ArticleController@create');
-        Route::post('/Article', 'ArticleController@store');
-        Route::get('/Article/{id}', 'ArticleController@show');
-        Route::get('/Article/{id}/edit', 'ArticleController@edit');
-        Route::put('/Article/{id}', 'ArticleController@update');
-        Route::delete('/Article/{id}', 'ArticleController@destroy');
-
-    }
-    else
-    {
-     Route::get('/', function () {
-    return view('/login','LoginController@show');
-});
-
- //  Route::get('/login','LoginController@show');
-
-    }
-    */
 //Route::get('post', ['before'=>'auth', 'uses'=>'ArticleController@index']);
 //Route::resource('/Article','ArticleController');
 //Route::delete('/article/{$id}/delete','ArticleController@destroy');
 
+//img UPload
+Route::get('/UploadI/create', 'UploadController@uploadForm');
+Route::post('/UploadI', 'UploadController@uploadSubmit');
+Route::get('/UploadI', 'UploadController@index');
+//Route::get('/UploadI', 'UploadController@showall');
+Route::get('/UploadI/{id}/edit', 'UploadController@edit'); 
+Route::put('/UploadI/{id}', 'UploadController@update');
+Route::delete('/UploadI/{id}', 'UploadController@destroy');
+ 
+
+Route::get('/UpImg','UpImgController@index');
+Route::post('/store','UpImgController@store');
+Route::get('/show','UpImgController@show');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/Edit', 'EditController@index'); //後台照片編輯
 
-/*
 Route::get('/ContactUs', 'ContactUsController@index'); //聯繫我
 Route::get('/About', 'AboutController@index');         //關於我
 Route::get('/Work', 'WorkController@index');           //作品集
 Route::post('/submitContact', 'ContactUsController@store');
-*/
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

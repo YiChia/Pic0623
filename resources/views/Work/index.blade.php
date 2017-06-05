@@ -54,85 +54,34 @@
 
       <!-- Content Start-->
     <div class="container">
-  <div class="row">
-      <p>
+       <p>
       @if (isset($data))
         <h1>{{ $data}}</h1>
       
     @endif
-      </p>
-      <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
+
+    
+  
+    
+    @foreach($query as $var)
+      @if($var->id%4==1)
+       <div class="row">
+       @endif     
+    <div class="col-md-3">  
+        <a href="{{ Storage::url($var->filename) }}" data-fancybox="gallery" target="_blank">
+          <img class="img-responsive" src="{{ Storage::url($var->filename) }}" alt="Lights" >
+          {{$var->id%4}}          
         </a>
     </div> 
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div> 
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div>
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div>
-  </div>
-  <div class="row">
-      <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div> 
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div> 
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div>
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div>
-  </div>
-  <div class="row">
-      <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div> 
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div> 
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div>
-    <div class="col-md-3">  
-        <a href="images/IMG_2551.jpg" data-fancybox="gallery" target="_blank">
-          <img class="img-responsive" src="images/IMG_2551.jpg" alt="Lights" >          
-        </a>
-    </div>
+   
+     @if($var->id%4==0)
+       </div >
+       @endif 
+    @endforeach
+    
+    
   </div>
 
-  
-  
-     
-    
- 
-    
   </div>
    <!-- Content END-->
    <!-- Content END-->

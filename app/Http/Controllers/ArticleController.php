@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Http\Requests\ArticleRequest;
+//use Input;
 
 class ArticleController extends Controller
 {
@@ -31,13 +32,26 @@ class ArticleController extends Controller
     }
    public function create()
     {  
+
        return view('Article.create');
     }
      public function store(ArticleRequest $request)
     {
 
-       Article::create($request->all());
-     
+      // Article::create($request->all());
+
+       /*
+        $product = Article::create($request->all());
+        foreach ($request->photos as $photo) {
+            $filename = $photo->store('photos');
+            ProductsPhoto::create([
+                'title' => $product->title,
+                'content' => $filename
+            ]);
+        }
+       */
+      //  return 'Upload successful!';
+        
        return redirect('Article');
       
         
@@ -58,6 +72,26 @@ class ArticleController extends Controller
        // return "welcome to Laravel";
         
        return view('Article.index');
+    }
+    public function iconUpload()   //image upload
+    {
+        $file = Input::file('user_icon_file');
+        $extension = $file->getClientOriginalExtension();
+        $file_name = strval(time()).str_random(5).'.'.$extension;
+
+        $destination_path = public_path().'/upload/';
+
+        if (Input::hasFile('user_icon_file')) {
+            $upload_success = $file->move($destination_path, $file_name);
+            echo "img upload success!";
+        } else {
+            echo "img upload failed!";
+        }
+
+        $user_obj = Auth::user();
+        $user_obj->user_icon = $file_name;
+        $user_obj->save();
+
     }
      public function __construct()
     {

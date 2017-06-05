@@ -4,7 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticleRequest extends FormRequest
+
+class UploadRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +24,26 @@ class ArticleRequest extends FormRequest
      */
     public function rules()
     {
+
+        //just one file
+        
         return [
-            'title'=>'required',
-            'content'=>'required|min:3',
+            'name' => 'required',
             'photo' => 'image|mimes:jpeg,bmp,png|size:2000'
         ];
+        
+
+        //more than two
+        /*
+         $rules = [
+            'name' => 'required'
+        ];
+        $photos = count($this->input('photos'));
+        foreach(range(0, $photos) as $index) {
+            $rules['photos.' . $index] = 'image|mimes:jpeg,bmp,png|max:2000';
+        }
+ 
+        return $rules;
+        */
     }
 }
